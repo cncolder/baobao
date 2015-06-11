@@ -1,0 +1,28 @@
+{
+    "browser": true,
+    "browserify": true,
+    "esnext": true,
+    "freeze": true,
+    "globals": {
+        "Connection": true,
+        "Media": true,
+        "PIXI": true,
+        "Phaser": true,
+        "Promise": true,
+        "app": true,
+        "cordova": true,
+        "device": true,
+        "fetch": true,
+        "game": true,
+        "window": true
+    },
+    "latedef": "nofunc",
+    "maxdepth": 3,
+    "mocha": true,
+    "newcap": true,
+    "node": true,
+    "noyield": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true
+}
