@@ -7,7 +7,7 @@
                 "MONGOOSE_DISABLE_STABILITY_WARNING": 1,
                 "MONGO_URL": "mongodb://127.0.0.1:27017/baobao?auto_reconnect=true",
                 "NODE_ENV": "development",
-                "HOST": "localhost",
+                "HOST": "0.0.0.0",
                 "PORT": 3000
             },
             "env_production": {
