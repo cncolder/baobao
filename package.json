@@ -7,12 +7,13 @@
                 "MONGOOSE_DISABLE_STABILITY_WARNING": 1,
                 "MONGO_URL": "mongodb://127.0.0.1:27017/baobao?auto_reconnect=true",
                 "NODE_ENV": "development",
+                "HOST": "localhost",
                 "PORT": 3000
             },
             "env_production": {
                 "DEBUG": "",
                 "NODE_ENV": "production",
-                "PORT": 80
+                "PORT": 3002
             },
             "ignore_watch": [
                 "[\\/\\\\]\\./",
@@ -22,6 +23,7 @@
             ],
             "instances": "1",
             "name": "baobao",
+            "next_gen_js": true,
             "node_args": "--harmony",
             "script": ".",
             "watch": false
@@ -32,6 +34,7 @@
         "url": "https://github.com/cncolder/baobao/issues"
     },
     "dependencies": {
+        "babel": "^5.5.6",
         "debug": "2",
         "hogan.js": "^3.0.2",
         "koa": "0.21.0",
@@ -50,13 +53,14 @@
         "lodash": "^3.6.0",
         "mongoose": "^4.0.1",
         "ms": "^0.7.0",
-        "mz": "^2.0.0"
+        "mz": "^2.0.0",
+        "oneapm": "^1.2.3"
     },
     "deploy": {
         "aliyun": {
-            "host": "haoduotongshu.com",
+            "host": "bao--bao.com",
             "path": "/root/bao--bao.com",
-            "post-deploy": "npm i --production && pm2 startOrRestart package.json --env production",
+            "post-deploy": "npm i --production && pm2 startOrRestart package.json --env production --next-gen-js",
             "ref": "origin/master",
             "repo": "https://github.com/cncolder/baobao.git",
             "user": "root"
@@ -64,6 +68,7 @@
     },
     "description": "BaoBao website",
     "devDependencies": {
+        "babelify": "^6.1.2",
         "browserify": "^10.2.4",
         "gulp": "^3.8.11",
         "gulp-autoprefixer": "^2.1.0",
