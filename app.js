@@ -1,11 +1,9 @@
 // require
 
 import debug from './models/debug';
-import oneapm from 'oneapm'; // jshint ignore:line
 import ms from 'ms';
 
 let log = debug('app'); // jshint ignore:line
-log(oneapm.getBrowserTimingHeader());
 
 
 // app
