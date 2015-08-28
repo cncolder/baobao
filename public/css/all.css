@@ -766,15 +766,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-baobao:before {
-  content: "\21";
+  content: "\22";
 }
 .icon-baobaolabel:before {
-  content: "\22";
+  content: "\23";
 }
 header .intro-text .intro-lead-in {
   font-style: normal;
 }
 .navbar-default .navbar-brand {
+  padding-top: 7px;
   color: white;
   font-size: 4em;
 }
@@ -791,6 +792,9 @@ header .intro-text .intro-lead-in {
     background-color: #222222;
   }
   .navbar-default.navbar-shrink .navbar-brand {
-    font-size: 3em;
+    font-size: 2.7em;
   }
+}
+section h2.section-heading {
+  font-size: 36px;
 }
