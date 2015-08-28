@@ -1,1 +1,72 @@
 @import "agency";
+
+@brand-primary: #c83c3b;
+@placeholder-text-reverse: #bbbbbb;
+
+// html, body * {
+//     font-family: '微软雅黑', 'Microsoft YaHei', 'STHeiti' !important;
+// }
+
+.serif-font() {
+    font-family: '微软雅黑', 'STHeiti';
+}
+
+.script-font() {
+    font-family: '微软雅黑', 'STHeiti';
+}
+
+.body-font() {
+    font-family: '微软雅黑', 'STHeiti';
+}
+
+.heading-font() {
+    font-family: '微软雅黑', 'STHeiti';
+}
+
+header {
+    .intro-text {
+        .intro-lead-in {
+            font-style: normal;
+        }
+    }
+}
+
+.navbar-default {
+    .navbar-brand {
+        color: white;
+    }
+    .nav {
+        li {
+            a {
+                font-size: 1.2em;
+                font-weight: bold;
+                &:hover,
+                &:focus {
+                    color: @placeholder-text;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width:768px) {
+    .navbar-default.navbar-shrink {
+        background-color: @gray-darkest;
+    }
+}
+
+#portfolio {
+    // h2 {
+    //     color: white;
+    // }
+    // h3 {
+    //     color:
+    // }
+    // .portfolio-item {
+    //     .portfolio-link {
+    //         .portfolio-hover {
+    //             background: fade(white, 45%);
+    //         }
+    //     }
+    // }
+}

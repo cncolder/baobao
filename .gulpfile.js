@@ -18,7 +18,7 @@ gulp.task('watch', () => {
 
 gulp.task('less', () => {
   return gulp.src('./views/less/index.less')
-    .pipe(less().on('error', err => {
+    .pipe(less().on('error', function(err) {
       gutil.log(err.message);
       this.emit('end');
     }))
@@ -50,7 +50,7 @@ gulp.task('browserify', () => {
 });
 
 gulp.task('pm2-dev', cb => {
-  child.spawn('pm2-dev', ['--next-gen-js', 'package.json'], {
+  child.spawn('pm2-dev', ['--next-gen-js', '--raw', 'package.json'], {
       stdio: 'inherit',
     })
     .on('exit', cb);

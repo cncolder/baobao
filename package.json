@@ -4,11 +4,10 @@
             "env": {
                 "DEBUG": "koa*,mongoose*,app*",
                 "DEBUG_COLORS": 1,
+                "HOST": "0.0.0.0",
                 "MONGOOSE_DISABLE_STABILITY_WARNING": 1,
                 "MONGO_URL": "mongodb://127.0.0.1:27017/baobao?auto_reconnect=true",
-                "NODE_ENV": "development",
-                "HOST": "0.0.0.0",
-                "PORT": 3000
+                "NODE_ENV": "development"
             },
             "env_production": {
                 "DEBUG": "",
@@ -58,7 +57,7 @@
     "deploy": {
         "aliyun": {
             "host": "bao--bao.com",
-            "path": "/root/bao--bao.com",
+            "path": "/www/bao--bao.com",
             "post-deploy": "npm i --production && pm2 startOrRestart package.json --env production --next-gen-js",
             "ref": "origin/master",
             "repo": "https://github.com/cncolder/baobao.git",
@@ -94,5 +93,5 @@
         "start": "node --harmony .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "1.0.0"
+    "version": "1.1.0"
 }
