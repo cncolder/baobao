@@ -814,3 +814,6 @@ section h2.section-heading {
 .join-rule p {
   margin-top: 0;
 }
+.join-rule img {
+  border-width: 1px;
+}
