@@ -50,7 +50,7 @@ gulp.task('browserify', () => {
 });
 
 gulp.task('pm2-dev', cb => {
-  child.spawn('pm2-dev', ['--next-gen-js', '--raw', 'package.json'], {
+  child.spawn('pm2-dev', ['--raw', 'package.json'], {
       stdio: 'inherit',
     })
     .on('exit', cb);

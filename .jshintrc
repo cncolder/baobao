@@ -16,6 +16,7 @@
         "game": true,
         "window": true
     },
+    "jquery": true,
     "latedef": "nofunc",
     "maxdepth": 3,
     "mocha": true,
