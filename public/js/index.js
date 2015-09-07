@@ -2,11 +2,7 @@ $('#wechat_barcode')
   .click(function() {
     return false;
   })
-  .tooltip({
-    html: true,
-  });
+  .tooltip();
 
 $('#weibo_account')
-  .tooltip({
-    html: true,
-  });
+  .tooltip();

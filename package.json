@@ -23,7 +23,7 @@
             ],
             "instances": "1",
             "name": "baobao",
-            "next_gen_js": true,
+            "next_gen_js": false,
             "node_args": "--harmony",
             "script": ".",
             "watch": false
@@ -59,7 +59,7 @@
         "aliyun": {
             "host": "bao--bao.com",
             "path": "/www/bao--bao.com",
-            "post-deploy": "npm i --production && pm2 startOrRestart package.json --env production --next-gen-js",
+            "post-deploy": "npm i --production && pm2 startOrRestart package.json --env production",
             "ref": "origin/master",
             "repo": "https://github.com/cncolder/baobao.git",
             "user": "root"
