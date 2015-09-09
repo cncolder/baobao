@@ -798,6 +798,9 @@ header .intro-text .intro-lead-in {
 section h2.section-heading {
   font-size: 36px;
 }
+.timeline > li .timeline-image:not(:last-child) {
+  background-color: transparent;
+}
 .join-rule {
   text-align: center;
   margin-bottom: 50px;
