@@ -820,3 +820,8 @@ section h2.section-heading {
 .join-rule img {
   border-width: 1px;
 }
+.join-rule ul,
+.join-rule ol,
+.join-rule p {
+  margin-top: 2em;
+}
