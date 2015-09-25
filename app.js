@@ -1,9 +1,14 @@
 // require
 
-import debug from './models/debug';
+import debug from './lib/debug';
 import ms from 'ms';
 
 let log = debug('app'); // jshint ignore:line
+
+
+// db
+
+import db from './lib/lowdb';
 
 
 // app
@@ -31,7 +36,7 @@ let options = {
 
   fileServer: {
     root: './public',
-    maxage: ms('1 hour'),
+    maxAge: ms('1 hour'),
     // index: 'index.html',
     // hidden: false,
     defer: false,
@@ -41,9 +46,7 @@ let options = {
     path: '/js/polyfill.js',
   },
 
-  session: {
-    store: require('./models/mongoose').sessionStore,
-  },
+  session: {},
 
   views: {
     path: './views',
@@ -52,10 +55,14 @@ let options = {
       html: 'hogan',
     },
   },
+
+  mail: {
+    to: db('config').getById('customer_services').emails,
+  },
 };
 
 if (app.env == 'development') {
-  options.fileServer.maxage = 0;
+  options.fileServer.maxAge = 0;
 }
 
 
@@ -103,9 +110,9 @@ app.use(cors());
 
 // session
 
-import session from 'koa-generic-session';
+import session from 'koa-session';
 
-app.use(session(options.session));
+session(options.session, app);
 
 
 // view renderer
@@ -131,7 +138,50 @@ app.use(json());
 
 // router
 
-import indexRoutes from './routes/index';
+import Router from 'koa-router';
+
+let router = new Router();
+
+import nodemailer from 'nodemailer';
+
+let mailer = nodemailer.createTransport();
+
+router
+  .get('/', function*() {
+    yield this.render('layout', {
+      partials: {
+        content: 'index',
+      },
+      title: '包包',
+    });
+  })
+  .get('/pospal', function*() {
+    return this.redirect([
+      'http://',
+      this.query.shop,
+      '.pospal.cn/m?qrc=',
+      this.query.addr,
+    ].join(''));
+  })
+  .post('/mail/contact_me.php', function*(next) {
+    let body = yield * this.request.urlencoded();
+    let email = {
+      to: options.sendgrid.to,
+      from: body.email,
+      subject: '包包网站信息反馈',
+      text: `${body.message}\n\n  ${body.name}  ${body.phone}`,
+    };
+
+    mailer.sendMail(email, function(err, res) {
+      if (err) {
+        log.e(err);
+      }
+      log(res);
+    });
+
+    this.status = 201;
+    yield next;
+  });
 
 app
-  .use(indexRoutes);
+  .use(router.routes());

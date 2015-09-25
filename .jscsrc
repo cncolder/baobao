@@ -10,5 +10,15 @@
         "value": 80
     },
     "preset": "node-style-guide",
-    "requireCapitalizedComments": null
+    "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+    "requireCapitalizedComments": null,
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "try",
+        "catch"
+    ]
 }

@@ -1,4 +1,4 @@
-import debug from './models/debug';
+import debug from './lib/debug';
 import http from 'http';
 import app from './app';
 
