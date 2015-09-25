@@ -166,7 +166,7 @@ router
   .post('/mail/contact_me.php', function*(next) {
     let body = yield * this.request.urlencoded();
     let email = {
-      to: options.sendgrid.to,
+      to: options.mail.to,
       from: body.email,
       subject: '包包网站信息反馈',
       text: `${body.message}\n\n  ${body.name}  ${body.phone}`,
